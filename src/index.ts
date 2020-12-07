@@ -1,17 +1,22 @@
-class Human {
-    public name: string;
-    public age: number;
-    public gender: string;
-    constructor(name: string, age: number, gender: string) {
-        this.name = name;
-        this.age = age;
-        this.gender = gender;
+class Block {
+    public index: number;
+    public hash: string;
+    public preHash: string;
+    public data: string;
+    public timestamp: number;
+    constructor(index: number, hash: string, preHash: string, data: string, timestamp: number) {
+        this.index = index;
+        this.hash = hash;
+        this.preHash = preHash;
+        this.data = data;
+        this.timestamp = timestamp;
     }
 }
 
-const jinwoo = new Human("bjw", 24, "male");
-const HelloFn = (person: Human): string => {
-    return `${person.name} , ${person.age} , ${person.gender}`;
-};
-console.log(HelloFn(jinwoo));
+const genesisBlock: Block = new Block(0, "123123412341324", "", "hello", 123456);
+
+let blockChain: [Block] = [genesisBlock];
+
+console.log(blockChain);
+
 export {};
